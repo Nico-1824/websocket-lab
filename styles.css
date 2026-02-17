@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 50rem;
+    background-image: radial-gradient(rgba(0, 119, 255, 0.376) 25%, black)
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+.text-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-display {
+    width: 30rem;
+    height: 30rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    border: 0.2rem black solid;
+    padding: 1rem;
+    background-color: rgba(28, 36, 45, 0.376);
+}
+
+.input-button-holder {
+    display: flex;
+}
+
+.input-button-holder button {
+    width: 4rem;
+    border-radius: 1rem;
+}
+
+.messages {
+    background-color: white;
+    border-radius: 1rem;
+    height: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+input {
+    width: 20rem;
+    height: 2rem;
+    border: 0.2rem black solid;
+}
