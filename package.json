@@ -1,0 +1,25 @@
+{
+  "name": "websocket-lab",
+  "version": "1.0.0",
+  "description": "A websocket that will encrpty messages to users",
+  "homepage": "https://github.com/Nico-1824/websocket-lab#readme",
+  "bugs": {
+    "url": "https://github.com/Nico-1824/websocket-lab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nico-1824/websocket-lab.git"
+  },
+  "license": "ISC",
+  "author": "Nicolas Brizuela",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "ws": "^8.19.0"
+  }
+}
