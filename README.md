@@ -1,7 +1,7 @@
 This is a project to stand up a websocket server.
 It will start a server and the webpage that has a messaging service built on top of the websocket to emulate a chat room for users.
 
-The client server is stood up when te webpage is opened automatically and all clients connected to the server will be notified when someone joins.
+The client server is stood up when the webpage is opened automatically and all clients connected to the server will be notified when someone joins.
 You are capped at 256 characters in a message and that message will be sent encoded with a super secret encription algorithm. Users will recieve the encoded message. To decode the message you can press the decode button and it will be live translated. 
 
 To run the server:
