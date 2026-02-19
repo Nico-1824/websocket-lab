@@ -6,20 +6,36 @@ const http = require("http");
 const fs = require('fs');
 const path = require('path');
 const WebSocket = require('ws');
+const { file } = require("jszip");
 
 const PORT  = 5500;
 
 const server = http.createServer((req, res) => {
-    const filePath = ( req.url === '/') ? 'index.html' : req.url;
+    try {
+        if (req.url === '/favicon.ico') return res.end();
 
-    const extname = path.extname(filePath);
-    let contentType = 'text/html';
-    if (extname === '.js') contentType = 'text/javascript';
-    else if (extname === '.css') contentType = 'text/css';
+        const filePath = ( req.url === '/') ? 'index.html' : req.url;
 
-    // pipe the proper file to the res object
-    res.writeHead(200, { 'Content-Type': contentType });
-    fs.createReadStream(`${__dirname}/${filePath}`, 'utf8').pipe(res);
+        const extname = path.extname(filePath);
+        let contentType = 'text/html';
+        if (extname === '.js') contentType = 'text/javascript';
+        else if (extname === '.css') contentType = 'text/css';
+
+        // pipe the proper file to the res object
+        const fullPath = path.join(__dirname, filePath);
+
+        fs.readFile(fullPath, (err, content) => {
+            if(err) {
+                res.writeHead(404);
+                return res.end("404 not found");
+            }
+
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content);
+        });
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 
