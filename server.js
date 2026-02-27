@@ -1,3 +1,11 @@
+
+/*
+TCP/Websocket server that listens on port 5500.
+Accepts client connections and receives messages (max 256 characters).
+Encodes each character by shifting +1 in the ASCII sequence.
+Sends the encoded message back to the client.
+*/
+
 // Express websocket server
 //////////////////////////// 
 const http = require("http");
