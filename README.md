@@ -12,6 +12,12 @@ To run the server:
 
     Done!
 
+Now open up two tabs using this port:
+http://localhost:5500/
+
+When one user sends a message in one tab, the other user will see the encoded message in the other. Simply click the decode button to see the proper message!
+
+
 Otherwise:
 
     Run these commands to do it manually:
