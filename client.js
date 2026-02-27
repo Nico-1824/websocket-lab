@@ -61,9 +61,9 @@ function replaceMessage(id, message) {
 
 
 
-//////////////////////////
+/////////////////////////////////////////////////////
 // SUBMIT FOR THE FORM TO SEND DATA TO THE WEBSOCKET
-//////////////////////////
+/////////////////////////////////////////////////////
 
 messageForm.onsubmit = function(e) {
     e.preventDefault();
@@ -80,7 +80,7 @@ messageForm.onsubmit = function(e) {
     }
 
     if (wsClient && wsClient.readyState === WebSocket.OPEN) {
-        showMessage(response.message);
+        // showMessage(response.message);
         const serverResponse = JSON.stringify(response);
         wsClient.send(serverResponse);
     }

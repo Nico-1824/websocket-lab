@@ -1,15 +1,20 @@
 // Express websocket server
-// 
-
-
+//////////////////////////// 
 const http = require("http");
 const fs = require('fs');
 const path = require('path');
 const WebSocket = require('ws');
-const { file } = require("jszip");
 
+
+
+
+
+
+
+//////////////////////////
+// SERVER DECLARATION
+//////////////////////////
 const PORT  = 5500;
-
 const server = http.createServer((req, res) => {
     try {
         if (req.url === '/favicon.ico') return res.end();
@@ -67,7 +72,7 @@ wsServer.on("connection", (socket) => {
 
 
 //////////////////////////////////////////////////////
-// FUNCTION TO PROCESS THE DATA INTO ENCODING
+// FUNCTION TO ENCODE THE MESSAGE
 //////////////////////////////////////////////////////
 function processData(data) {
     let result = "";
@@ -88,7 +93,7 @@ function processData(data) {
 
 
 //////////////////////////////////////////////////////
-// BROADCAST FUNCTION
+// BROADCAST FUNCTION BACK TO THE CLIENT THAT SENT MESSAGE AS WELL
 //////////////////////////////////////////////////////
 
 function broadcast(data, socketToOmit) {
@@ -96,7 +101,7 @@ function broadcast(data, socketToOmit) {
         "message": data,
     }
     wsServer.clients.forEach(connectedClient => {
-        if(connectedClient.readyState === WebSocket.OPEN && connectedClient !==  socketToOmit) {
+        if(connectedClient.readyState === WebSocket.OPEN && connectedClient ===  socketToOmit) {
             connectedClient.send(JSON.stringify(response));
         }
     });
@@ -108,6 +113,6 @@ function broadcast(data, socketToOmit) {
 // STARTING THE WEBSOCKET SERVER ON PORT
 //////////////////////////////////////////////////////
 
-server.listen(5500, () => {
+server.listen(PORT, () => {
     console.log(`Listening on: http://localhost:${server.address().port}`)
 })
