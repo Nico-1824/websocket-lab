@@ -1,4 +1,10 @@
-// This will be the client websocket recieving from the server
+/*
+This will be the client websocket receiving from the server
+Sends user-entered messages to the server.
+Displays the encoded response received from the server.
+Includes optional live decoding functionality.
+*/
+
 let wsClient;
 
 const messageBox = document.querySelector("input");
