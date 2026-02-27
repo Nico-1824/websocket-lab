@@ -1,3 +1,8 @@
+/*
+Stylesheet for the web interface.
+Provides layout, formatting, and visual styling for input fields, buttons, and output display.
+*/
+
 * {
     margin: 0;
     padding: 0;
